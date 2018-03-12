@@ -49,7 +49,57 @@ void vector_define_size_read_iterator() {
 
 
 }
+
+void vector_erase_insert() {
+    std::vector<std::string>
+        vector_initialiazer_list {std::string("liuyi"), std::string("yating")};
+    std::vector<std::string> temp {std::string("yiting"), std::string("and")};
+    vector_initialiazer_list.insert(
+        std::begin(vector_initialiazer_list), std::string("and"));
+    std::copy(
+        std::begin(vector_initialiazer_list),
+        std::end(vector_initialiazer_list),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+
+    vector_initialiazer_list.insert(
+        std::begin(vector_initialiazer_list), 
+        std::begin(temp),
+        std::end(temp));
+    std::copy(
+        std::begin(vector_initialiazer_list),
+        std::end(vector_initialiazer_list),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+// erase and remove
+    vector_initialiazer_list.erase(
+        std::begin(vector_initialiazer_list),
+        std::begin(vector_initialiazer_list) + 3);
+    std::copy(
+        std::begin(vector_initialiazer_list),
+        std::end(vector_initialiazer_list),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+
+    std::cout << "vector_initialiazer_list size : " << 
+        vector_initialiazer_list.size() << std::endl;
+
+    auto iter = std::remove(
+        std::begin(vector_initialiazer_list),
+        std::end(vector_initialiazer_list),
+        std::string("liuyi"));
+    std::copy(
+        std::begin(vector_initialiazer_list),
+        iter,
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << "vector_initialiazer_list size : " << 
+        vector_initialiazer_list.size() << std::endl;
+
+}
+
+
 int main () {
-    vector_define_size_read_iterator();
+ //   vector_define_size_read_iterator();
+    vector_erase_insert();
     return 0;
 }
