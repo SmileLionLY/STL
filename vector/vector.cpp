@@ -6,6 +6,16 @@
 
 
 void vector_define_size_read_iterator() {
+//vector define
+    std::cout << "========vector define :" << std::endl;
+    std::vector<std::string> word_initializer {
+        std::string("home"),
+        std::string("where") };
+    std::copy(
+        std::begin(word_initializer),
+        std::end(word_initializer),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
     std::vector<std::string> words;
     words.reserve(10);
     std::cout << "input word sperated by space , enter ctrlz+Z to end." << std::endl;
@@ -47,10 +57,23 @@ void vector_define_size_read_iterator() {
         std::ostream_iterator<std::string>(std::cout, "--"));
     std::cout << std::endl;
 
-
 }
 
-void vector_erase_insert() {
+void vector_emplaceorpush_insert_erase_remove_assign() {
+// vector emplace or push
+    std::cout << "========vector emplace or push : " << std::endl;
+    std::vector<std::string> vec_emplace {
+        std::string("aaaa") };
+    vec_emplace.push_back(std::string("bbbbb"));
+    vec_emplace.emplace_back(std::string("ccccc"));
+    std::copy(
+        std::begin(vec_emplace),
+        std::end(vec_emplace),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+
+// vector insert
+    std::cout << "========vector insert : " << std::endl;
     std::vector<std::string>
         vector_initialiazer_list {std::string("liuyi"), std::string("yating")};
     std::vector<std::string> temp {std::string("yiting"), std::string("and")};
@@ -72,6 +95,7 @@ void vector_erase_insert() {
         std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << std::endl;
 // erase and remove
+    std::cout << "========vector erase and remove : " << std::endl;
     vector_initialiazer_list.erase(
         std::begin(vector_initialiazer_list),
         std::begin(vector_initialiazer_list) + 3);
@@ -94,12 +118,37 @@ void vector_erase_insert() {
         std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << "vector_initialiazer_list size : " << 
         vector_initialiazer_list.size() << std::endl;
+//assign
+    std::cout << "==========vector assign :" << std::endl;
+    auto initiliazor_list = {std::string("cc"), std::string("bb")};
+    std::vector<std::string> vec0;
+    vec0.assign(initiliazor_list);
+    std::copy(
+        std::begin(vec0),
+        std::end(vec0),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+
+    std::vector<std::string> vec {
+        std::string("work"),
+        std::string("life")};
+    std::vector<std::string> vec2 {
+        std::string("aaa") };
+    vec2.assign(
+        std::begin(vec),
+        std::end(vec));
+    std::copy(
+        std::begin(vec2),
+        std::end(vec2),
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+
 
 }
 
 
 int main () {
- //   vector_define_size_read_iterator();
-    vector_erase_insert();
+//    vector_define_size_read_iterator();
+    vector_emplaceorpush_insert_erase_remove_assign();
     return 0;
 }
