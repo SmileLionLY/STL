@@ -54,6 +54,20 @@ void list_create_add_insert() {
         std::end(list_iter),
         std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << std::endl;
+// spalica
+    std::cout << "=====================splice : " << std::endl;
+    std::list<int> list_int1 {1, 2, 3};
+    std::list<int> list_int2 {4, 5, 6};
+    list_int1.splice(
+        std::begin(list_int1),
+        list_int2,
+        std::begin(list_int2),
+        std::end(list_int2));
+    std::copy(
+        std::begin(list_int1),
+        std::end(list_int1),
+        std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
 }
 
 void list_remove_merge_sort() {
