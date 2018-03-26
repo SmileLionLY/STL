@@ -15,9 +15,10 @@ void array_create_read_compare() {
     std::cout << "array_initialiazer_list size : " <<
         array_initialiazer_list.size() << std::endl;
 //read
+    std::cout << "index 0 : " << array_initialiazer_list.front() << std::endl;
+    std::cout << "index 9 : " << array_initialiazer_list.back() << std::endl;
     std::cout << "index 1 : " << array_initialiazer_list[1] << std::endl;
     std::cout << "index 1 : " << array_initialiazer_list.at(1) << std::endl;
-
     std::cout << "index 2 : " << std::get<2>(array_initialiazer_list) <<
         std::endl;
     // have check index in compiler complie
@@ -27,6 +28,9 @@ void array_create_read_compare() {
         std::begin(array_initialiazer_list),
         std::begin(array_initialiazer_list) + 2,
         std::ostream_iterator<std::string>(std::cout, " "));
+// size
+    std::cout << "array_initialiazer_list size : " <<
+        array_initialiazer_list.size() << std::endl;
 //compare
     if (array_initialiazer_list < array_init) {
         std::cout << "array_initialiazer_list < array_init" << std::endl;    

@@ -16,6 +16,9 @@ void list_create_add_insert() {
         std::cout << value;
     std::cout << std::endl;
     std::list<std::string> list_copy(list_iter);
+// read
+    std::cout << "list_num 0 : " << list_num.front() << std::endl;
+    std::cout << "list_num 19 : " << list_num.back() << std::endl;
 //add 
     list_iter.push_front(std::string("liuyi"));
     list_iter.push_back(std::string("yating"));

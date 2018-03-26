@@ -7,6 +7,7 @@
 void deque_create_read_add_remove_assign() {
 //init create
     std::cout << "===================deque create : " << std::endl;
+    std::deque<std::string> deque_init_repeat(10, "name");
     std::deque<std::string> deque_init_size(10);
     std::deque<std::string> deque_init_list {"my", "name", "liuyi"};
     std::deque<std::string> deque_init_iter(
@@ -33,7 +34,12 @@ void deque_create_read_add_remove_assign() {
         i++;
         std::cout << "deque_init_list[" << i << "] : " << *iter << std::endl;    
     }
-// push back
+    std::cout << "deque_init_list : " << deque_init_list.front() << std::endl;
+    std::cout << "deque_init_list : " << deque_init_list.back() << std::endl;
+    std::cout << "deque_init_list : " << deque_init_list.front() << std::endl;
+    std::cout << "deque_init_list : " << deque_init_list.at(0) << std::endl;
+    std::cout << "deque_init_list : " << deque_init_list[0] << std::endl;
+// push pop
     std::cout << "===================deque emplace or push : " << std::endl;
     std::deque<int> deque_int {1, 2, 3, 4};
     deque_int.push_back(5);
@@ -45,6 +51,8 @@ void deque_create_read_add_remove_assign() {
         std::end(deque_int), 
         std::ostream_iterator<int>(std::cout, " "));
     std::cout << std::endl;
+    deque_int.pop_back();
+    deque_int.pop_front();
 // insert
     std::cout << "===================insert : " << std::endl;
     std::deque<int> deque_insert(20, 5);
@@ -76,6 +84,25 @@ void deque_create_read_add_remove_assign() {
     std::copy(
         std::begin(deque_init_list), 
         std::end(deque_init_list), 
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+    deque_init_list.push_front(std::string("yating"));
+    deque_init_list.push_front(std::string("yating"));
+    std::copy(
+        std::begin(deque_init_list), 
+        std::end(deque_init_list), 
+        std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << std::endl;
+    auto ptr = std::remove(
+        std::begin(deque_init_list), 
+        std::end(deque_init_list),
+        std::string("yating"));
+    deque_init_list.erase(
+        ptr,
+        std::end(deque_init_list));
+    std::copy(
+        std::begin(deque_init_list), 
+        ptr, 
         std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << std::endl;
 

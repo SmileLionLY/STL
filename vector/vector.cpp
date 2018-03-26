@@ -60,6 +60,12 @@ void vector_define_size_read_iterator() {
 }
 
 void vector_emplaceorpush_insert_erase_remove_assign() {
+// create 
+    std::vector<int> vec_1 {1, 2, 3};
+    std::cout << "vec_1 size : " << vec_1.size() << std::endl;
+    std::vector<int> vec_2(20, 3);
+    std::cout << "vec_2 size : " << vec_2.size() << std::endl;
+    std::vector<int> vec_3(std::begin(vec_1), std::end(vec_1));
 // vector emplace or push
     std::cout << "========vector emplace or push : " << std::endl;
     std::vector<std::string> vec_emplace {
@@ -71,6 +77,9 @@ void vector_emplaceorpush_insert_erase_remove_assign() {
         std::end(vec_emplace),
         std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << std::endl;
+// read
+    std::cout << "vec_1 front : " << vec_1.front() << std::endl;
+    std::cout << "vec_1 end : " << vec_1.back() << std::endl;
 
 // vector insert
     std::cout << "========vector insert : " << std::endl;
@@ -108,8 +117,8 @@ void vector_emplaceorpush_insert_erase_remove_assign() {
     std::cout << "vector_initialiazer_list size : " << 
         vector_initialiazer_list.size() << std::endl;
 
-    auto iter = std::remove(
-        std::begin(vector_initialiazer_list),
+    auto iter = std::remove( //只是把删除的元素移动到最后，然后返回移动元素首元素
+        std::begin(vector_initialiazer_list),//的迭代器
         std::end(vector_initialiazer_list),
         std::string("liuyi"));
     std::copy(
